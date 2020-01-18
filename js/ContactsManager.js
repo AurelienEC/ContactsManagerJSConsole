@@ -5,35 +5,36 @@ class ContactsManager {
 	}
 	// Create menu for Contacts Manager
 	menu(){
-		console.log("Bienvenue dans notre gestionnaire de contact");
+		console.log("Welcome to our contact manager");
 		let continueManager = true;
 		do {
-			let choice = prompt(`Voulez vous:\n1- Voir la liste des contacts \n2- Ajouter un contact \n3- Modifier un contact \n4- Supprimer un contact \n0- Quitter le programme`);
+			let choice = prompt(`Do you want to:\n1- See Contacts List \n2- Add a contact \n3- Modify a contact \n4- Delete a contact \n0- Leave the program`);
 			switch (parseInt(choice)) {
 				case 0 :
-					continueManager = false
+					continueManager = false;
 					break;
 				case 1 :
-					console.log("Liste des contacts");
+					console.log("Contacts List");
 					this.listContacts();
 					break;
 				case 2 :
-					console.log("Ajouter Contact");
+					console.log("Add Contact");
 					this.addContact();
 					break;
 				case 3 :
-					console.log("Modifier Contact");
+					console.log("Modify Contact");
+					this.updateContact();
 					break;
 				case 4 :
-					console.log("Supprimer Contact");
+					console.log("Delete Contact");
 					this.deleteContact();
 					break;
 				default :
 					break;
 
 			}
-		}while(continueManager)
-		console.log("Merci d'avoir utilisé notre gestionnaire de contacts")
+		}while(continueManager);
+		console.log("Thanks to use our Contacts Manager")
 
 	}
 
@@ -41,53 +42,53 @@ class ContactsManager {
 	 * Adding CRUD to Program in order to manage Contacts
 	 */
 	addContact(){
-		console.log("Veuillez entrer un nouveau Contact")
-		var contact = new Contact()
+		console.log("Please enter a new contact");
+		let contact = new Contact();
 		this.contactsList.push(contact);
-		console.log("Ce contact a été ajouté au gestionnaire")
-		this.listContacts()
-
+		console.log("This contact has been added");
+		this.listContacts();
 	}
 
 	updateContact(){
-		//choisir un contact
+		console.log("todo");
+		//Choose a contact
 
 		/*
-			proposer à l'utilisateur de modifier une donnée :
-			1 - Modifier le nom
-			2 - Modifier le prénom
-			3 - Modifier l'email
-			4 - Modifier le nom, le prénom et l'email
-			0 - Revenir au menur principal
+			Ask the user to alter a data:
+			1 - Modify Name
+			2 - Modify Surname
+			3 - Modify Email
+			4 - Modify Name, Surname and email
+			0 - Back to the main menu
 		 */
 
-		//Appeler la fonction de modification de la donnée en fonction du choix utilisateur
-		// utiliser le switch
-		
+		// Call the method asked by user
+		// use switch
+
 	}
 
 	deleteContact(){
 		let deleteContact = true;
 		do {
-			let choice = this.selectContact("supprimer")
+			let choice = this.selectContact("delete");
 			if (choice <= this.contactsList.length && choice > 0){
 				this.contactsList.splice(choice - 1, 1);
-				console.log("Le contact a été supprimé");
+				console.log("Contact has been deleted");
 				deleteContact = false;
 			}else if(choice === 0){
-				console.log("Retour au menu principal")
+				console.log("Back to the main menu");
 				deleteContact = false
 			}else{
-				console.error("Une erreur s'est produite. Vous avez saisi: " + choice );
-				console.error("Veuillez choisir un nombre entre 1 et " + this.contactsList.length + " | 0 pour annuler");
+				console.error(`An error occured you choosed: ${choice}` );
+				console.error(`Please choose a number between 1 and ${this.contactsList.length} | 0 to cancel`);
 			}
 		}while(deleteContact);
 
 	}
 
 	listContacts(){
-		console.log("Voici la liste de vos contacts")
-		console.log("==============================")
+		console.log("This is your contacts list");
+		console.log("==============================");
 		for(let i = 0 ; i < this.contactsList.length; i++){
 			console.log(`${i + 1} - ${this.contactsList[i].getAllInformations()}`)
 		}
@@ -95,7 +96,7 @@ class ContactsManager {
 
 	selectContact(motive){
 		this.listContacts();
-		let choice = prompt(`Sélectionnez le contact à ${motive} dans la liste`);
+		let choice = prompt(`Select the contact to ${motive} in the list`);
 		return parseInt(choice);
 	}
 
