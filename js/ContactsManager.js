@@ -90,7 +90,7 @@ class ContactsManager {
 		console.log("This is your contacts list");
 		console.log("==============================");
 		let index = 1;
-		this.contactsList.forEach(contact => {
+		this.contactsList.forEach( (contact) => {
 			console.log(`${index} - ${contact.getAllInformations()}`);
 			index++
 		});
