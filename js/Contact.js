@@ -27,9 +27,9 @@ class Contact {
 	}
 	setEmail(){
 		do {
-			this.email = prompt("Enter contact Email")
+			this.email = prompt("Enter contact Email");
 		} while (!this.validateEmail(this.email));
-		console.log(`Your contact ${this.name} ${this.surname} email is: ${this.email}`)
+		console.log(`Your contact ${this.name} ${this.surname} email is: ${this.email}`);
 	}
 	// TODO : Set Phone Number
 

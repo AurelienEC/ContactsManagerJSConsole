@@ -89,8 +89,13 @@ class ContactsManager {
 	listContacts(){
 		console.log("This is your contacts list");
 		console.log("==============================");
+		let index = 1;
+		this.contactsList.forEach(contact => {
+			console.log(`${index} - ${contact.getAllInformations()}`);
+			index++
+		});
 		for(let i = 0 ; i < this.contactsList.length; i++){
-			console.log(`${i + 1} - ${this.contactsList[i].getAllInformations()}`)
+
 		}
 	}
 
