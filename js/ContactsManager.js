@@ -94,9 +94,6 @@ class ContactsManager {
 			console.log(`${index} - ${contact.getAllInformations()}`);
 			index++;
 		});
-		for(let i = 0 ; i < this.contactsList.length; i++){
-
-		}
 	}
 
 	selectContact(motive){
