@@ -92,7 +92,7 @@ class ContactsManager {
 		let index = 1;
 		this.contactsList.forEach( (contact) => {
 			console.log(`${index} - ${contact.getAllInformations()}`);
-			index++
+			index++;
 		});
 		for(let i = 0 ; i < this.contactsList.length; i++){
 
